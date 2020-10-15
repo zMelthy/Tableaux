@@ -105,11 +105,12 @@ def complemento(l):
     return c
 
     pass
+print(complemento('-q'))
 
-def par_complementario(l):
-    for a in l:
-        p1=a
-        for i in l:
+def par_complementario(h):
+    for a in h:
+        p1 = a
+        for i in h:
             if i == p1:
                 continue
             p2 = complemento(i)
@@ -123,6 +124,13 @@ def par_complementario(l):
     return False
 
     pass
+ht = [Tree('-',None,Tree('Z1',None,None)), Tree('S1',None,None), Tree('-',None,Tree('S10',None,None)), Tree('Z10',None,None)]
+h = []
+for a in ht:
+    l = Inorder(a)
+    h.append(l)
+print(h)
+print(par_complementario(h))
 
 def es_literal(f):
 	# Esta función determina si el árbol f es un literal
