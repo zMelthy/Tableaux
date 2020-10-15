@@ -98,19 +98,31 @@ def imprime_listaHojas(L):
 		print(imprime_hoja(h))
 
 def complemento(l):
-	# Esta función devuelve el complemento de un literal
-	# Input: l, un literal
-	# Output: x, un literal
+    if l in letrasProposicionales:
+        c = "-" + l
+    else:
+        c = l[1:]
+    return c
 
-	pass
+    pass
 
 def par_complementario(l):
-	# Esta función determina si una lista de solo literales
-	# contiene un par complementario
-	# Input: l, una lista de literales
-	# Output: True/False
+    for a in l:
+        p1=a
+        for i in l:
+            if i == p1:
+                continue
+            p2 = complemento(i)
+            if p1 == p2:
+                pc = 1
+                break
+            else:
+                pc = 0
+        if pc == 1:
+            return True
+    return False
 
-	pass
+    pass
 
 def es_literal(f):
 	# Esta función determina si el árbol f es un literal
