@@ -105,7 +105,7 @@ def complemento(l):
     return c
 
     pass
-print(complemento('-q'))
+#print(complemento('-q'))
 
 def par_complementario(h):
     for a in h:
@@ -124,26 +124,38 @@ def par_complementario(h):
     return False
 
     pass
-ht = [Tree('-',None,Tree('Z1',None,None)), Tree('S1',None,None), Tree('-',None,Tree('S10',None,None)), Tree('Z10',None,None)]
-h = []
-for a in ht:
-    l = Inorder(a)
-    h.append(l)
-print(h)
-print(par_complementario(h))
+#ht = [Tree('-',None,Tree('Z1',None,None)), Tree('S1',None,None), Tree('-',None,Tree('S10',None,None)), Tree('Z10',None,None)]
+#h = []
+#for a in ht:
+#    l = Inorder(a)
+#    h.append(l)
+#print(h)
+#print(par_complementario(h))
 
 def es_literal(f):
 	# Esta función determina si el árbol f es un literal
 	# Input: f, una fórmula como árbol
 	# Output: True/False
-
-	pass
+        if f.right == None:
+            return True
+        if f.label == "-":
+            return es_literal(f.right)
+        else:
+            return False
+    
+xd = Tree('O',Tree('k',None,None),Tree('Y',Tree('i',None,None),Tree('j',None,None)))
+print(es_literal(xd))
+print(Inorder(xd))
 
 def no_literales(l):
-	# Esta función determina si una lista de fórmulas contiene
-	# solo literales
-	# Input: l, una lista de fórmulas como árboles
-	# Output: None/f, tal que f no es literal
+#        if l.right == None:
+#            return False
+#        if l.label == "-":
+#            if l.right == None:
+#                return False
+#            if l.right == 
+#            else: 
+#                return False
 
 	pass
 
@@ -209,3 +221,4 @@ def Tableaux(f):
 			clasifica_y_extiende(x, h)
 
 	return listaInterpsVerdaderas
+
