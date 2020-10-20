@@ -133,16 +133,14 @@ def par_complementario(h):
 #print(par_complementario(h))
 
 def es_literal(f):
-	# Esta función determina si el árbol f es un literal
-	# Input: f, una fórmula como árbol
-	# Output: True/False
-        if f.right == None:
-            return True
-        if f.label == "-":
-            return es_literal(f.right)
-        else:
-            return False
+    if f.right == None:
+        return True
+    if f.label == "-":
+        return es_literal(f.right)
+    else:
+        return False
     
+    pass
 xd = Tree('O',Tree('k',None,None),Tree('Y',Tree('i',None,None),Tree('j',None,None)))
 print(es_literal(xd))
 print(Inorder(xd))
@@ -160,11 +158,31 @@ def no_literales(l):
 	pass
 
 def clasificacion(f):
-	# clasifica una fórmula como alfa o beta
-	# Input: f, una fórmula como árbol
-	# Output: string de la clasificación de la formula
+    if f.label == '-':
+        if f.right.label == '-':
+            return '1 ALFA'
+        elif f.right.label == 'O':
+            return '3 ALFA'
+        elif f.right.label == '>':
+            return '4 ALFA'
+        elif f.right.label == 'Y':
+            return '1 BETA'
+    elif f.label == 'Y':
+        return '2 ALFA'
+    elif f.label == 'O':
+        return '2 BETA'
+    else:
+        return '3 BETA'
 
-	pass
+    pass
+#a = Inorder2Tree('--(-(pOq)Y-(r>s))')
+#a = Inorder2Tree('(-(pOq)Y-(r>s))')
+#a = Inorder2Tree('-(-(r>s)Oq)')
+#a = Inorder2Tree('-(r>-(pOq))')
+#a = Inorder2Tree('-(pY(r>s))')
+#a = Inorder2Tree('(-(pYq)O(r>s))')
+a = Inorder2Tree('(r>(sOq))')
+print(clasificacion(a))
 
 def clasifica_y_extiende(f, h):
 	# Extiende listaHojas de acuerdo a la regla respectiva
