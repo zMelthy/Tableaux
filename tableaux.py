@@ -225,7 +225,7 @@ def Tableaux(f):
 	global listaHojas
 	global listaInterpsVerdaderas
 
-	A = Inorder2Tree(f)
+	A = String2Tree(f)
 	print(u'La fórmula introducida es:\n', Inorder(A))
 
 	listaHojas = [[A]]         #[[Tree(x,None,npnonfoernergerg)]]
